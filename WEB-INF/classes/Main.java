@@ -1,21 +1,22 @@
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.UnavailableException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Main extends HttpServlet {
 
     private Connection connection;
     private Statement statement;
+    private ResultSet resultSet;
+
+    public static void main(String[] args) {
+
+    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
@@ -31,7 +32,7 @@ public class Main extends HttpServlet {
 
         if (firstWord.equals("select")) {
             try {
-                statement.executeQuery(query);
+                resultSet = statement.executeQuery(query);
             } catch (SQLException sql) {
                 sql.printStackTrace();
             }
@@ -65,7 +66,12 @@ public class Main extends HttpServlet {
 
     }
 
-    public static void main(String[] args) {
-
+    public void destroy() {
+        try {
+            statement.close();
+            connection.close();
+        } catch (SQLException sql) {
+            sql.printStackTrace();
+        }
     }
 }

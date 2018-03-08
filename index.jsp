@@ -27,7 +27,7 @@ Date: April 1, 2018
         <br>
         <div class="divider"></div>
         <p>Database Results:</p>
-        <form action="index.jsp" method="POST" id="outputForm">
+        <form action="Main" method="get" id="outputForm">
 
         </form>
     </main>
