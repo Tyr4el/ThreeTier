@@ -1,0 +1,22 @@
+<web-app>
+    <display-name>
+        CNT 4714 - Project 4
+    </display-name>
+    
+    <description>
+        Web application for Project 4
+    </description>
+    
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <description>
+            The main servlet for Project 4
+        </description>
+        <servlet-class>Main</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>main</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+</web-app>

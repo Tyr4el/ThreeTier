@@ -1,0 +1,33 @@
+.divider {
+    border: 1px solid white
+}
+
+.submitButton {
+    margin-top: 1em;
+}
+
+#sqlStatement {
+    background: yellow;
+    width: 500px;
+    height: 200px;
+}
+
+body {
+    background: blue;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    
+}
+
+form {
+    text-align: center;
+    margin-top: 1em;
+}
+
