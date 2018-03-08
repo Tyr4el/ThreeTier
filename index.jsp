@@ -19,7 +19,7 @@ Date: April 1, 2018
     <main>
         <p>You are connected to the Project4 database. <br> Please enter any valid SQL query or update statement. <br> If no query/update command is given, the Execute button will display all supplier information in the database. <br> All execution results will appear below. <br></p>
 
-        <form action="/Project4/main" method="post">
+        <form action="Main.do" method="post">
             <textarea name="sqlStatement" id="sqlStatement" cols="30" rows="10"></textarea><br>
             <input type="submit" value="Execute Command" name="execute" class="submitButton">
             <input type="submit" value="Clear Form" name="clear" class="submitButton">
