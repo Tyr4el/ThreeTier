@@ -17,6 +17,6 @@
     
     <servlet-mapping>
         <servlet-name>main</servlet-name>
-        <url-pattern>/Main.do</url-pattern>
+        <url-pattern>/Main</url-pattern>
     </servlet-mapping>
 </web-app>

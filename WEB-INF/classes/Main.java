@@ -21,21 +21,30 @@ public class Main extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
 
+        // Set the content type
         response.setContentType("text/html");
+        // Set the PrintWriter
         PrintWriter out = response.getWriter();
 
+        // Get the query from the HTML document
         String query = request.getParameter("sqlStatement").toLowerCase();
+        // Split the query into an array
         String[] querySplit = query.split(" ", 2);
+        // Get the first word to use later
         String firstWord = querySplit[0];
 
-        init(); // Create the connection to the database
+        // Create the connection to the database
+        init();
 
+        // Check if the first word of the query is "select"
+        // Execute a query if so
         if (firstWord.equals("select")) {
             try {
                 resultSet = statement.executeQuery(query);
             } catch (SQLException sql) {
                 sql.printStackTrace();
             }
+            // Otherwise, perform an update
         } else {
             try {
                 statement.executeUpdate(query);
@@ -54,6 +63,7 @@ public class Main extends HttpServlet {
 
     }
 
+    // Method to create a connection to the SQL database
     public void init() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -66,6 +76,7 @@ public class Main extends HttpServlet {
 
     }
 
+    // DESTROY ALL THE THINGS (or at least the connection things)!!!
     public void destroy() {
         try {
             statement.close();
